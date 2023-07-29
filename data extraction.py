@@ -198,44 +198,44 @@ import mysql.connector
 conn=mysql.connector.connect(user='root', password='12345', host='localhost',port=3306,auth_plugin='mysql_native_password')
 cursor=conn.cursor()
 cursor.execute("use phonepe_pulse")
-# cursor.execute("create table agg_trans (State varchar(100), Year int, Quarter int, Transaction_type varchar(100), Transaction_count int, Transaction_amount double)")
-# for i,row in df_agg_trans.iterrows():
-#       sql = "insert into agg_trans values (%s,%s,%s,%s,%s,%s)"
-#       cursor.execute(sql, tuple(row))
-#       conn.commit()
+cursor.execute("create table agg_trans (State varchar(100), Year int, Quarter int, Transaction_type varchar(100), Transaction_count int, Transaction_amount double)")
+for i,row in df_agg_trans.iterrows():
+       sql = "insert into agg_trans values (%s,%s,%s,%s,%s,%s)"
+       cursor.execute(sql, tuple(row))
+       conn.commit()
 #
-# cursor.execute("create table agg_user (State varchar(100), Year int, Quarter int, Brands varchar(100), Count int, Percentage double)")
-# for i,row in df_agg_user.iterrows():
-#       sql = "insert into agg_user values (%s,%s,%s,%s,%s,%s)"
-#       cursor.execute(sql, tuple(row))
-#       conn.commit()
+cursor.execute("create table agg_user (State varchar(100), Year int, Quarter int, Brands varchar(100), Count int, Percentage double)")
+for i,row in df_agg_user.iterrows():
+       sql = "insert into agg_user values (%s,%s,%s,%s,%s,%s)"
+       cursor.execute(sql, tuple(row))
+       conn.commit()
 #
-# cursor.execute("create table map_trans (State varchar(100), Year int, Quarter int, District varchar(100), Count int, Amount double)")
-# for i,row in df_map_trans.iterrows():
-#       sql = "insert into map_trans values (%s,%s,%s,%s,%s,%s)"
-#       cursor.execute(sql, tuple(row))
-#       conn.commit()
+cursor.execute("create table map_trans (State varchar(100), Year int, Quarter int, District varchar(100), Count int, Amount double)")
+for i,row in df_map_trans.iterrows():
+       sql = "insert into map_trans values (%s,%s,%s,%s,%s,%s)"
+       cursor.execute(sql, tuple(row))
+       conn.commit()
 #
-# cursor.execute("create table map_user (State varchar(100), Year int, Quarter int, District varchar(100), Registered_user int, App_opens int)")
-# for i,row in df_map_user.iterrows():
-#       sql = "insert into map_user values (%s,%s,%s,%s,%s,%s)"
-#       cursor.execute(sql, tuple(row))
-#       conn.commit()
+cursor.execute("create table map_user (State varchar(100), Year int, Quarter int, District varchar(100), Registered_user int, App_opens int)")
+for i,row in df_map_user.iterrows():
+       sql = "insert into map_user values (%s,%s,%s,%s,%s,%s)"
+       cursor.execute(sql, tuple(row))
+       conn.commit()
 #
-# cursor.execute("create table top_trans (State varchar(100), Year int, Quarter int, Pincode int, Transaction_count int, Transaction_amount double)")
-# for i,row in df_top_trans.iterrows():
-#       sql = "INSERT INTO top_trans VALUES (%s,%s,%s,%s,%s,%s)"
-#       cursor.execute(sql, tuple(row))
-#       conn.commit()
+cursor.execute("create table top_trans (State varchar(100), Year int, Quarter int, Pincode int, Transaction_count int, Transaction_amount double)")
+for i,row in df_top_trans.iterrows():
+       sql = "INSERT INTO top_trans VALUES (%s,%s,%s,%s,%s,%s)"
+       cursor.execute(sql, tuple(row))
+       conn.commit()
 #
-# cursor.execute("create table top_user (State varchar(100), Year int, Quarter int, Pincode int, Registered_users int)")
-# for i,row in df_top_user.iterrows():
-#       sql = "insert into top_user values (%s,%s,%s,%s,%s)"
-#       cursor.execute(sql, tuple(row))
-#       conn.commit()
+cursor.execute("create table top_user (State varchar(100), Year int, Quarter int, Pincode int, Registered_users int)")
+for i,row in df_top_user.iterrows():
+       sql = "insert into top_user values (%s,%s,%s,%s,%s)"
+       cursor.execute(sql, tuple(row))
+       conn.commit()
 #
-# cursor.execute("show tables")
-#print(cursor.fetchall())
+cursor.execute("show tables")
+print(cursor.fetchall())
 
 df_agg_trans.to_csv('agg_trans.csv',index=False)
 df_agg_user.to_csv('agg_user.csv',index=False)
